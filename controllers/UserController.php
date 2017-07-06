@@ -8,8 +8,6 @@ class UserController
         $name = '';
         $password = '';
         
-        $_SESSION["total"]++; //счетчик неудачных отправок формы
-        
                
         if (isset($_POST['submit'])) {
             $name = $_POST['name'];
@@ -32,14 +30,14 @@ class UserController
             if ($userId == false) {
                 // Если данные неправильные - показываем ошибку
                 
+                $_SESSION["total"]++;//счетчик неудачных отправок формы
                 
-                if (isset($_SESSION["total"]) && $_SESSION["total"] < 4) {
+                if (isset($_SESSION["total"]) && $_SESSION["total"] < 3) {
                     $errors[] = 'Неверные данные';
                 } else {     
                     $hidden = 'hidden';
-                    setcookie('hidden', $hidden, time() + 15 );
-                    $_SESSION["total"] = 0;                  
-                    //unset($_SESSION["total"]); // установить время жизни!!!!!!!!!!!!!!!!!!!
+                    setcookie('hidden', $hidden, time() + 25 );
+                    
                 }
 
                 print_r($_SESSION["total"]);         
@@ -52,6 +50,9 @@ class UserController
                 header("Location: /cabinet/"); 
             }
 
+        } else {
+            
+            $_SESSION["total"] = 0;
         }
 
         require_once(ROOT . '/views/user/login.php');

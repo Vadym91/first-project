@@ -32,8 +32,8 @@
    
 
                     <div class="button-wrap"> 
-                        <?php if (isset($hidden)): ?>
-                            <input type="submit" name="submit" class="buttons <?php echo $hidden; ?>" value="Вход" />
+                        <?php if (isset($_COOKIE['hidden'])): ?>
+                            <input type="submit" name="submit" class="buttons <?php echo $_COOKIE['hidden']; ?>" value="Вход" />
                             <h3>Попробуйте еще раз через 5 минут.</h3>
                         <?php else: ?>
                             <input type="submit" name="submit" class="buttons" value="Вход" />
