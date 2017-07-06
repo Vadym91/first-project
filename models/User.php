@@ -19,9 +19,9 @@ class User
         if($usser['name'] == $res['name'] && $usser['password'] == $res['password']) {
             return $res['id'];
         } else {              
-            return true;
+            return false;
         }
-  // ($usser as $key => $value) {
+
         // ($usser as $key => $value) {
          //   if($res[$key] == $value) {
          //       return $res['id'];
