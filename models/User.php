@@ -21,7 +21,7 @@ class User
         } else {              
             return false;
         }
-  
+  // ($usser as $key => $value) {
         // ($usser as $key => $value) {
          //   if($res[$key] == $value) {
          //       return $res['id'];
