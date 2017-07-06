@@ -15,14 +15,20 @@ class User
         
         $usser['name'] = $name;
         $usser['password'] = $password;
-  
-        foreach ($usser as $key => $value) {
-            if($res[$key] == $value) {
-                return $res['id'];
-            } else {              
-                return false;
-            }
+        
+        if($usser['name'] == $res['name'] && $usser['password'] == $res['password']) {
+            return $res['id'];
+        } else {              
+            return false;
         }
+  
+        // ($usser as $key => $value) {
+         //   if($res[$key] == $value) {
+         //       return $res['id'];
+         //   } else {              
+          //      return false;
+         //   }
+       // }
   
     }
 
